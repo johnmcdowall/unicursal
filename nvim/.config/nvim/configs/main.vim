@@ -10,8 +10,6 @@
 " Set leader to space bar
 let g:mapleader = "\<Space>"
 let g:maplocalleader = ','
-nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
-nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
 
 " Truecolor support
 set termguicolors
@@ -36,6 +34,8 @@ set conceallevel=0
 
 " Don't display mode in command line (airline already shows it)
 set noshowmode
+
+set completeopt=menuone,noselect,noinsert
 
 " Automatically re-read file if a change was detected outside of vim
 set autoread
@@ -206,19 +206,6 @@ augroup specify_filetype
     " highlighting. 
     autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
     autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
-
-    function! ShowDocIfNoDiagnostic(timer_id)
-      if (coc#float#has_float() == 0)
-        silent call CocActionAsync('doHover')
-      endif
-    endfunction
-
-    function! s:show_hover_doc()
-      call timer_start(500, 'ShowDocIfNoDiagnostic')
-    endfunction
-
-    autocmd CursorHoldI * :call <SID>show_hover_doc()
-    autocmd CursorHold * :call <SID>show_hover_doc()
     
     " if nerdtree is only window, kill nerdtree so buffer can die
     autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif

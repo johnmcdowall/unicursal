@@ -9,22 +9,8 @@
 "###################################################################################
 
 "***********************************************************************************
-
 " Main Vim Keybinds
-
 "***********************************************************************************
-
-" CoC
-nnoremap <silent> K :call CocAction('doHover')<CR>
-nmap <leader>do <Plug>(coc-codeaction)
-nmap <leader>rn <Plug>(coc-rename)
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gr <Plug>(coc-references)
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
-nnoremap <silent> <space>d :<C-u>CocList diagnostics<cr>
-nnoremap <silent> <space>s :<C-u>CocList -I symbols<cr>
 
 
 "" Switch between the last two files
@@ -35,20 +21,9 @@ nnoremap <Leader><Leader> <C-^>
 """""""""""
 nmap <F6> :Goyo<CR>
 
-""""""""""""""""
-" coc-explorer "
-""""""""""""""""
-map <Leader>, :CocCommand explorer<CR>
-
 " Pasting
 "map <silent> "=p :r !powershell.exe -Command Get-Clipboard<CR>"
 noremap <Leader>p :set paste<CR> :exe 'norm a'.system('/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -Command Get-Clipboard')<CR> :set nopaste<CR>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" fzf config
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <C-p> :GFiles<Cr>
-nnoremap <C-s> :Buffers<CR>
 
 " Close all open buffers
 nnoremap <Leader>x :bufdo bd<CR>
@@ -115,31 +90,6 @@ nnoremap  <Leader>gM  :Gmerge<cr>
 nnoremap  <Leader>gb  :Gbrowse<cr>
 " browse current line on web
 
-" Use tab for trigger completion with characters ahead and navigate.
-" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
-" other plugin before putting this into your config.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
-
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
-" position. Coc only does snippet and additional edit on confirm.
-" <cr> could be remapped by other vim plugin, try `:verbose imap <CR>`.
-if exists('*complete_info')
-  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-else
-  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-endif
 
 " Trigger Markdown preview
 nnoremap  <Leader>mp  :MarkdownPreview<cr>

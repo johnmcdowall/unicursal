@@ -12,22 +12,6 @@
 let ayucolor="dark"
 colorscheme ayu
 
-" CoC
-let g:coc_global_extensions = ['coc-tslint-plugin', 'coc-tsserver', 'coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-yank', 'coc-solargraph', 'coc-tailwindcss', 'coc-explorer']
-
-if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
-    let g:coc_global_extensions += ['coc-prettier']
-endif
-
-if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
-    let g:coc_global_extensions += ['coc-eslint']
-endif
-
-" Language server
-let g:LanguageClient_serverCommands = {
-    \ 'ruby': ['~/.asdf/shims/solargraph', 'stdio'],
-    \ }
-
 " Closetag config
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.erb,*.ejs,*.jsx,*.tsx,*.js"
 
@@ -152,10 +136,6 @@ hi! PmenuSel ctermbg=0
 " Brighter line numbers
 hi! LineNr ctermfg=NONE guibg=NONE
 
-augroup MyAutoCmd
-  autocmd!
-augroup end
-
 """""""""""""""""
 "Nerd Commenter "
 """""""""""""""""
@@ -172,6 +152,7 @@ let g:rainbow_conf = {
 
 augroup vimrcEx
   autocmd!
+
   " When editing a file, always jump to the last known cursor position.
   " Don't do it for commit messages, when the position is invalid, or when
   " inside an event handler (happens when dropping a file on gvim).

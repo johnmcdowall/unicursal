@@ -16,24 +16,30 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 endif
 call plug#begin('~/.vimplugins')
 
+" NVim's LSP
+Plug 'neovim/nvim-lspconfig'
+Plug 'glepnir/lspsaga.nvim'
+Plug 'folke/lsp-colors.nvim'
+
+" Treesitter
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+" Fuzzy finding
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+
+" Completion
+Plug 'hrsh7th/nvim-compe'
+
 " Writing nvim configs in lua
 Plug 'svermeulen/vimpeccable'
-
-" coc for tslinting, auto complete and prettier
-Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
-
-" Show which keys do what
-Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 
 " Language Packs
 Plug 'sheerun/vim-polyglot'
 
 " https://github.com/styled-components/vim-styled-components/issues/75
 Plug 'styled-components/vim-styled-components', { 'branch': 'develop' }
-
-" FZF
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
 
 " Git wrapper
 Plug 'tpope/vim-fugitive'
@@ -47,7 +53,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
 
 " Auto pairs
-Plug 'jiangmiao/auto-pairs'
+Plug 'windwp/nvim-autopairs'
 
 " Auto close tags
 Plug 'alvan/vim-closetag'
