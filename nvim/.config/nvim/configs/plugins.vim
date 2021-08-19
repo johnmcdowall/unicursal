@@ -24,6 +24,9 @@ Plug 'folke/lsp-colors.nvim'
 " Treesitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
+" File Explorer
+Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
+
 " Fuzzy finding
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
