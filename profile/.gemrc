@@ -1,0 +1,5 @@
+---
+gem: --no-document
+install: --no-rdoc --no-ri --no-doc
+update: --no-rdoc --no-ri --no-doc
+verbose: true
