@@ -29,3 +29,8 @@ function zsh_add_completion() {
 	completion_file="$(basename "${completion_file_path}")"
 	if [ "$2" = true ] && compinit "${completion_file:1}"
 }
+
+# 'work on', via https://coderwall.com/p/feoi0a
+function wo() {
+  cd $(find $CODE_DIR -type d -maxdepth 3 | grep -Ei $* | grep -Ev Pods --max-count=1)
+}
