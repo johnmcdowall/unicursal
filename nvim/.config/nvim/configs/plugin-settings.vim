@@ -150,38 +150,3 @@ let g:rainbow_conf = {
 \   'ctermfgs': ['4', '3', '12', '8', '10', '5'],
 \}
 
-augroup vimrcEx
-  autocmd!
-
-  " When editing a file, always jump to the last known cursor position.
-  " Don't do it for commit messages, when the position is invalid, or when
-  " inside an event handler (happens when dropping a file on gvim).
-  autocmd BufReadPost *
-    \ if &ft != 'gitcommit' && &ft != 'gitrebase' && line("'\"") > 0 && line("'\"") <= line("$") |
-    \   exe "normal g`\"" |
-    \ endif
-
-  " Set syntax highlighting for specific file types
-  autocmd BufRead,BufNewFile *.md set filetype=markdown
-  autocmd BufRead,BufNewFile *.inky-erb set filetype=eruby
-
-  autocmd BufRead,BufNewFile .{jscs,jshint,eslint}rc set filetype=json
-
-  " in makefiles, don't expand tabs to spaces, since actual tab characters are
-  " needed, and have indentation at 8 chars to be sure that all indents are tabs
-  " (despite the mappings later):
-
-  autocmd FileType make set noexpandtab shiftwidth=8 softtabstop=0
-
-  " Remove trailing whitespace before saving a file
-  au FileType ruby,javascript,css,scss,sass,html,erb autocmd BufWritePre <buffer> :%s/\s\+$//e
-augroup END
-
-
-" Fix visual selection
-set background=dark
-" highlight Visual ctermbg=Blue ctermfg=White
-
-let g:fzf_layout = {'up':'~90%', 'window': { 'width': 0.8, 'height': 0.8,'yoffset':0.5,'xoffset': 0.5, 'highlight': 'Todo', 'border': 'sharp' } }
-
-" let $FZF_DEFAULT_OPTS = '--layout=reverse --info=inline'

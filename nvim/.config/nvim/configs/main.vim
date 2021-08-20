@@ -14,6 +14,10 @@ let g:maplocalleader = ','
 " Truecolor support
 set termguicolors
 
+" Fix visual selection
+set background=dark
+" highlight Visual ctermbg=Blue ctermfg=White
+
 " Regex engine?
 set re=0
 
@@ -133,12 +137,6 @@ if !&sidescrolloff
     set sidescrolloff=5
 endif
 
-" Get off my lawn
-nnoremap <Left> :echoe "Use h"<CR>
-nnoremap <Right> :echoe "Use l"<CR>
-nnoremap <Up> :echoe "Use k"<CR>
-nnoremap <Down> :echoe "Use j"<CR>
-
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow
 set splitright
@@ -149,37 +147,7 @@ set incsearch " find the next match as we type the search
 set showmatch
 set mat=2 "how many tenths of a second to blink when matching brackets
 
-" pasting
-noremap <leader>y "*y
-noremap <leader>p :set paste<CR>"*p<CR>:set nopaste<CR>
-noremap <leader>P :set paste<CR>"*P<CR>:set nopaste<CR>"
-
-" all the exits
-:command! WQ wq
-:command! Wq wq
-:command! Q q
-:command! W w
-:command! Bd bd
-
-" http://vimcasts.org/episodes/bubbling-text/
-nmap <C-Up> ddkP
-nmap <C-Down> ddp
-nmap <C-Left> <<
-nmap <C-Right> >>
-
-"Horizontal bubbling
-vnoremap < <gv
-vnoremap > >gv
-nmap gV `[v``]
-
-"Bubble multiple lines
-vmap <C-Up> xkP`[V``]
-vmap <C-Down> xp`[V``]
-vmap <C-Right> >gv
-vmap <C-Left> <gvn
-
 set redrawtime=10000
-nnoremap U :syntax sync fromstart<cr>:redraw!<cr>
 
 " Spelling
 highlight clear SpellBad
@@ -222,4 +190,33 @@ augroup numbertoggle
   autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
   autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 augroup END
+
+augroup vimrcEx
+  autocmd!
+
+  " When editing a file, always jump to the last known cursor position.
+  " Don't do it for commit messages, when the position is invalid, or when
+  " inside an event handler (happens when dropping a file on gvim).
+  autocmd BufReadPost *
+    \ if &ft != 'gitcommit' && &ft != 'gitrebase' && line("'\"") > 0 && line("'\"") <= line("$") |
+    \   exe "normal g`\"" |
+    \ endif
+
+  " Set syntax highlighting for specific file types
+  autocmd BufRead,BufNewFile *.md set filetype=markdown
+  autocmd BufRead,BufNewFile *.inky-erb set filetype=eruby
+
+  autocmd BufRead,BufNewFile .{jscs,jshint,eslint}rc set filetype=json
+
+  " in makefiles, don't expand tabs to spaces, since actual tab characters are
+  " needed, and have indentation at 8 chars to be sure that all indents are tabs
+  " (despite the mappings later):
+
+  autocmd FileType make set noexpandtab shiftwidth=8 softtabstop=0
+
+  " Remove trailing whitespace before saving a file
+  au FileType ruby,javascript,css,scss,sass,html,erb autocmd BufWritePre <buffer> :%s/\s\+$//e
+augroup END
+
+
 
