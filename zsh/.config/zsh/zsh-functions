@@ -34,3 +34,19 @@ function zsh_add_completion() {
 function wo() {
   cd $(find $CODE_DIR -maxdepth 3 -type d | grep -Ei $* | grep -Ev Pods --max-count=1)
 }
+
+function sitealive() {
+  while [ true ]; do
+      STATUS=$(curl -I -k -s $1 | head -n 1 | cut -d$' ' -f2);
+      TIME=$(date +"%T")
+
+      if [[ "$STATUS" == "200" ]]
+      then
+          echo -n "\e[32m."
+      else
+          echo -e "\n\e[31m $STATUS - $TIME"
+      fi
+
+      sleep 1;
+  done
+}
