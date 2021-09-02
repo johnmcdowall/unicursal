@@ -27,9 +27,9 @@ lua << EOF
       path = true;
       buffer = true;
       calc = true;
+      vsnip = true;
       nvim_lsp = true;
       nvim_lua = true;
-      vsnip = true;
       ultisnips = true;
       luasnip = true;
     };
