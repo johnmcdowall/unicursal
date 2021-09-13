@@ -132,3 +132,5 @@ vmap <C-Left> <gvn
 " Force screen redraw
 nnoremap U :syntax sync fromstart<cr>:redraw!<cr>
 
+" maximize current split or return to previous 
+noremap <C-w>m :MaximizerToggle<CR>

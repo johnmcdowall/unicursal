@@ -96,4 +96,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'   }
 " Ayu
 Plug 'ayu-theme/ayu-vim'
 
+" Maximizer
+Plug 'szw/vim-maximizer'
+
 call plug#end()
