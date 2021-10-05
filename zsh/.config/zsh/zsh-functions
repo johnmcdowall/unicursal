@@ -32,7 +32,7 @@ function zsh_add_completion() {
 
 # 'work on', via https://coderwall.com/p/feoi0a
 function wo() {
-  cd $(find $CODE_DIR -maxdepth 3 -type d | grep -Ei $* | grep -Ev Pods --max-count=1)
+  cd $(find $CODE_DIR -maxdepth 3 -type d | grep -Ei "$*"$ | grep -Ev Pods --max-count=1)
 }
 
 function sitealive() {
