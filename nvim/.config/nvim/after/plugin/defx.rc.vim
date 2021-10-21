@@ -79,6 +79,13 @@ autocmd FileType defx call s:defx_my_settings()
 	  \ defx#do_action('change_vim_cwd')
 	endfunction
 
+augroup defx-extensions
+	autocmd!
+
+	" Move focus to the next window if current buffer is defx
+	autocmd TabLeave * if &ft == 'defx' | wincmd w | endif
+augroup END
+
 call defx#custom#column('icon', {
       \ 'directory_icon': '▸',
       \ 'opened_icon': '▾',
