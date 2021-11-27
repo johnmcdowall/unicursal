@@ -10,6 +10,3 @@ source $ZDOTDIR/.zshrc
 
 export HISTFILE=$HOME/.zhistory
 
-. $HOME/.asdf/asdf.sh
-
-. $HOME/.asdf/completions/asdf.bash
