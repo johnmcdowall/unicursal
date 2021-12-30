@@ -161,28 +161,6 @@ if executable(s:clip)
   augroup END
 end
 
-augroup specify_filetype
-    autocmd!
-    autocmd BufRead,BufNewFile *.md set filetype=markdown
-    autocmd BufRead,BufNewFile *.txt set filetype=text
-    autocmd FileType javascriptreact setlocal shiftwidth=2 tabstop=2
-    autocmd FileType typescript.tsx setlocal shiftwidth=2 tabstop=2
-
-    " Sometimes syntax highlighting can get out of sync in large JSX and TSX
-    " files. This was happening too often for me so I opted to enable syntax
-    " sync fromstart, which forces vim to rescan the entire buffer when
-    " highlighting. 
-    autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
-    autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
-    
-    " if nerdtree is only window, kill nerdtree so buffer can die
-    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-  
-    " Jump to the last known position when reopening a file.
-    au BufReadPost * if &filetype != "gitcommit" && line("'\"") > 0 && line("'\"") <= line("$")
-    \| exe "normal! g'\"" | endif
-augroup END
-
 " Relative line numbers
 set number
 augroup numbertoggle
@@ -191,8 +169,33 @@ augroup numbertoggle
   autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 augroup END
 
+augroup highlight_yank
+    autocmd!
+    autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 40})
+augroup END
+
 augroup vimrcEx
   autocmd!
+
+  " Set syntax highlighting for specific file types
+  autocmd BufRead,BufNewFile *.inky-erb set filetype=eruby
+  autocmd BufRead,BufNewFile .{jscs,jshint,eslint}rc set filetype=json
+  autocmd BufRead,BufNewFile *.md set filetype=markdown
+  autocmd BufRead,BufNewFile *.txt set filetype=text
+  autocmd FileType javascriptreact setlocal shiftwidth=2 tabstop=2
+  autocmd FileType typescript.tsx setlocal shiftwidth=2 tabstop=2
+  
+  " in makefiles, don't expand tabs to spaces, since actual tab characters are
+  " needed, and have indentation at 8 chars to be sure that all indents are tabs
+  " (despite the mappings later):
+  autocmd FileType make set noexpandtab shiftwidth=8 softtabstop=0
+
+  " Sometimes syntax highlighting can get out of sync in large JSX and TSX
+  " files. This was happening too often for me so I opted to enable syntax
+  " sync fromstart, which forces vim to rescan the entire buffer when
+  " highlighting. 
+  autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
+  autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
 
   " When editing a file, always jump to the last known cursor position.
   " Don't do it for commit messages, when the position is invalid, or when
@@ -202,21 +205,6 @@ augroup vimrcEx
     \   exe "normal g`\"" |
     \ endif
 
-  " Set syntax highlighting for specific file types
-  autocmd BufRead,BufNewFile *.md set filetype=markdown
-  autocmd BufRead,BufNewFile *.inky-erb set filetype=eruby
-
-  autocmd BufRead,BufNewFile .{jscs,jshint,eslint}rc set filetype=json
-
-  " in makefiles, don't expand tabs to spaces, since actual tab characters are
-  " needed, and have indentation at 8 chars to be sure that all indents are tabs
-  " (despite the mappings later):
-
-  autocmd FileType make set noexpandtab shiftwidth=8 softtabstop=0
-
   " Remove trailing whitespace before saving a file
   au FileType ruby,javascript,css,scss,sass,html,erb autocmd BufWritePre <buffer> :%s/\s\+$//e
 augroup END
-
-
-

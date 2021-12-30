@@ -12,18 +12,15 @@
 " Main Vim Keybinds
 "***********************************************************************************
 
-
 "" Switch between the last two files
 nnoremap <Leader><Leader> <C-^>
+
+noremap <Leader>h :nohl<CR>
 
 """""""""""
 " Goyo    "
 """""""""""
 nmap <F6> :Goyo<CR>
-
-" Pasting
-"map <silent> "=p :r !powershell.exe -Command Get-Clipboard<CR>"
-noremap <Leader>p :set paste<CR> :exe 'norm a'.system('/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -Command Get-Clipboard')<CR> :set nopaste<CR>
 
 " Close all open buffers
 nnoremap <Leader>x :bufdo bd<CR>
@@ -46,7 +43,6 @@ nnoremap<silent> <Tab> :bnext<CR>
 nnoremap<silent> <S-Tab> :bprevious<CR>
 " Kill buffer with Space+bk
 nnoremap<silent> <Space>bk :bdelete<CR> 
-
 
 " Indent controls
 " Reselect text ater indent/unindent.
@@ -73,11 +69,11 @@ vnoremap <Leader>Ar :right<CR>
  
 " Git keybinds
 " Git status
-nnoremap  <Leader>gs  :Gstatus<cr>
+nnoremap  <Leader>gs  :Git<cr>
 " Git diff in split window
 nnoremap  <Leader>gd  :Gdiffsplit<cr>
 " Git commit
-nnoremap  <Leader>gc  :Gcommit<cr>
+nnoremap  <Leader>gc  :Git commit<cr>
 " Git push 
 nnoremap  <Leader>gP  :Gpush<cr>
 " Git pull 
@@ -103,7 +99,6 @@ nnoremap <Down> :echoe "Use j"<CR>
 " pasting
 noremap <leader>y "*y
 noremap <leader>p :set paste<CR>"*p<CR>:set nopaste<CR>
-noremap <leader>P :set paste<CR>"*P<CR>:set nopaste<CR>"
 
 " all the exits
 :command! WQ wq
@@ -112,25 +107,24 @@ noremap <leader>P :set paste<CR>"*P<CR>:set nopaste<CR>"
 :command! W w
 :command! Bd bd
 
-" http://vimcasts.org/episodes/bubbling-text/
-nmap <C-Up> ddkP
-nmap <C-Down> ddp
-nmap <C-Left> <<
-nmap <C-Right> >>
+" Text bubbling up and down
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
 
-"Horizontal bubbling
-vnoremap < <gv
-vnoremap > >gv
-nmap gV `[v``]
+" Keep the cursor in the middle of the screen when doing nexts
+nnoremap n nzzzv
+nnoremap N Nzzzv
 
-"Bubble multiple lines
-vmap <C-Up> xkP`[V``]
-vmap <C-Down> xp`[V``]
-vmap <C-Right> >gv
-vmap <C-Left> <gvn
+" Keep the cursor where it was when doing join lines
+nnoremap J mzJ`z
+
+" Make Y behave like the other capital letters that do action from
+" current cursor to end of line.
+nnoremap Y yg$
 
 " Force screen redraw
 nnoremap U :syntax sync fromstart<cr>:redraw!<cr>
 
 " maximize current split or return to previous 
 noremap <C-w>m :MaximizerToggle<CR>
+

@@ -18,7 +18,7 @@ call plug#begin('~/.vimplugins')
 
 " NVim's LSP
 Plug 'neovim/nvim-lspconfig'
-Plug 'glepnir/lspsaga.nvim'
+Plug 'tami5/lspsaga.nvim'
 Plug 'folke/lsp-colors.nvim'
 Plug 'hrsh7th/vim-vsnip'
 Plug 'rafamadriz/friendly-snippets'
