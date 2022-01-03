@@ -4,3 +4,4 @@ source $ZDOTDIR/zshrc
 
 
 . $(brew --prefix asdf)/asdf.sh
+source /Users/jmd/.asdf/installs/rust/1.57.0/env
