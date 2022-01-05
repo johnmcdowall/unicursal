@@ -21,21 +21,26 @@ lsp_installer.on_server_ready(function(server)
     opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
   end
 
-  if server.name == "solargraph" then
-    local solargraph_opts = require("user.lsp.settings.solargraph")
-    opts = vim.tbl_deep_extend("force", solargraph_opts, opts)
-  end
-
-  if server.name == "efm" then
-    local efm_opts = require("user.lsp.settings.efm")
-    opts = vim.tbl_deep_extend("force", efm_opts, opts)
-  end
-
-  print(server.name)
-
-
   -- This setup() function is exactly the same as lspconfig's setup function.
   -- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
   server:setup(opts)
 end)
+
+local util = require("lspconfig/util")
+local opts = {
+    cmd = { "solargraph", "stdio" },
+    filetypes = { "ruby" },
+    init_options = {
+      formatting = true
+    },
+    root_dir = util.root_pattern("Gemfile", ".git"),
+    settings = {
+      solargraph = {
+        diagnostics = true
+      }
+    },
+    on_attach = require("user.lsp.handlers").on_attach,
+    capabilities = require("user.lsp.handlers").capabilities,
+}
+ require("lspconfig")["solargraph"].setup(opts)
 
