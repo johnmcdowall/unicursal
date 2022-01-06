@@ -45,6 +45,21 @@ local kind_icons = {
 }
 -- find more here: https://www.nerdfonts.com/cheat-sheet
 
+---checks if emmet_ls is available and active in the buffer
+---@return boolean true if available, false otherwise
+local is_emmet_active = function()
+  local clients = vim.lsp.buf_get_clients()
+
+  for _, client in pairs(clients) do
+    print(client.name)
+    if client.name == "emmet_ls" then
+      print("EMMET ACTIVE")
+      return true
+    end
+  end
+  return false
+end
+
 cmp.setup {
   snippet = {
     expand = function(args)
@@ -74,6 +89,8 @@ cmp.setup {
         luasnip.expand_or_jump()
       elseif check_backspace() then
         fallback()
+      elseif is_emmet_active() then
+        return vim.fn["cmp#complete"]()
       else
         fallback()
       end
