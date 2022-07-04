@@ -180,6 +180,12 @@ local mappings = {
     h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
     v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
   },
+
+  m = { 
+    name = "Markdown",
+    p = "<Plug>MarkdownPreview<cr>", "Markdown Preview" 
+    s = "<Plug>MarkdownPreviewStop<cr>", "Markdown Preview Stop" 
+  },
 }
 
 which_key.setup(setup)
