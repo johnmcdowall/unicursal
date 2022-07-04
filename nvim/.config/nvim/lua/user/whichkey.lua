@@ -183,8 +183,8 @@ local mappings = {
 
   m = { 
     name = "Markdown",
-    p = "<Plug>MarkdownPreview<cr>", "Markdown Preview" 
-    s = "<Plug>MarkdownPreviewStop<cr>", "Markdown Preview Stop" 
+    p = { "<Plug>MarkdownPreview<cr>", "Markdown Preview" },
+    s = { "<Plug>MarkdownPreviewStop<cr>", "Markdown Preview Stop" },
   },
 }
 
