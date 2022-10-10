@@ -1,4 +1,7 @@
 vim.cmd [[
+hi! LspReferenceRead ctermbg=237 guibg=#1B1E28
+hi! LspReferenceText ctermbg=237 guibg=#303030
+hi! LspReferenceWrite ctermbg=237 guibg=#303030
   augroup _general_settings
     autocmd!
     autocmd FileType qf,help,man,lspinfo nnoremap <silent> <buffer> q :close<CR> 

@@ -58,11 +58,24 @@ return packer.startup(function(use)
   use "goolord/alpha-nvim"
   use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
   use "folke/which-key.nvim"
+  use "RRethy/vim-illuminate"
 
   -- Colorschemes
   -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
   use "lunarvim/darkplus.nvim"
   use "fenetikm/falcon"
+  use {
+    "olivercederborg/poimandres.nvim",
+    config = function()
+    require('poimandres').setup {
+      bold_vert_split = true, -- use bold vertical separators
+      dim_nc_background = false, -- dim 'non-current' window backgrounds
+      disable_background = false, -- disable background
+      disable_float_background = false, -- disable background for floats
+      disable_italics = false, -- disable italics
+    }
+    end
+  }
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
@@ -81,6 +94,9 @@ return packer.startup(function(use)
   use "williamboman/nvim-lsp-installer" -- simple to use language server installer
   use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
+
+  use 'ray-x/go.nvim'
+  use 'ray-x/guihua.lua' -- recommanded if need floating window support
 
   -- Telescope
   use "nvim-telescope/telescope.nvim"

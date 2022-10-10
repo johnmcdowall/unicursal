@@ -1,6 +1,7 @@
+
 vim.cmd [[
 try
-  colorscheme falcon
+  colorscheme poimandres
 catch /^Vim\%((\a\+)\)\=:E185/
   colorscheme default
   set background=dark
