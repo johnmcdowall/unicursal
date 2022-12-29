@@ -1,0 +1,6 @@
+require("hexagram.packer")
+require("hexagram.colors")
+require("hexagram.highlight")
+require("hexagram.set")
+require("hexagram.remap")
+require("hexagram.autocommands")
