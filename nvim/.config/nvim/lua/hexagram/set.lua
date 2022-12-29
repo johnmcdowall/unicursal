@@ -1,3 +1,7 @@
+-- Leader is SPACE
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
 -- Appearance
 vim.opt.guifont = "berkeley mono"               -- the font used in graphical neovim applications
 vim.opt.termguicolors = true
@@ -6,7 +10,6 @@ vim.opt.showmode = false                        -- no need to show the mode, usi
 vim.opt.cmdheight = 1                           -- more space in the neovim command line for displaying messages
 vim.opt.winbar='%f %m'                          -- set the window title bar to show filename and modification status
 vim.opt.laststatus=3                            -- use a global status line 
-
 
 -- FILLCHARS 
 vim.opt.fillchars = {
@@ -48,7 +51,7 @@ vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
 
 -- Search
-vim.opt.hlsearch = false
+vim.opt.hlsearch = true
 vim.opt.incsearch = true
 
 -- Misc

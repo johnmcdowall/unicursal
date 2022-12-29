@@ -1,8 +1,6 @@
 -- Install packer
 local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
-local is_bootstrap = false
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-    is_bootstrap = true
     vim.fn.system { 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path }
     vim.cmd [[packadd packer.nvim]]
 end
@@ -24,14 +22,22 @@ return require('packer').startup(function(use)
         requires = { {'nvim-lua/plenary.nvim'} }
     }
 
-    use { "olivercederborg/poimandres.nvim" }
-
     use({'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'})
-    use('nvim-treesitter/playground')
     use('theprimeagen/harpoon')
     use('mbbill/undotree')
     use('tpope/vim-fugitive')
+    use("windwp/nvim-autopairs") -- Autopairs, integrates with both cmp and treesitter
+    use("numToStr/Comment.nvim") -- Easily comment stuff
+    use("lewis6991/impatient.nvim") -- Speed up loading Lua modules in Neovim to improve startup time.
 
+    use({
+      "kylechui/nvim-surround",
+      config = function()
+        require("nvim-surround").setup()
+      end,
+    })
+
+    -- *** LSP *** 
     use {
         'VonHeikemen/lsp-zero.nvim',
         requires = {
@@ -56,27 +62,24 @@ return require('packer').startup(function(use)
         }
     }
 
+    -- The current best Golang setup
     use 'ray-x/go.nvim'
-    use 'ray-x/guihua.lua' -- recommanded if need floating window support
 
-    use("windwp/nvim-autopairs") -- Autopairs, integrates with both cmp and treesitter
+    -- recommanded if need floating window support
+    use 'ray-x/guihua.lua'
 
-    use({
-      "kylechui/nvim-surround",
-      config = function()
-        require("nvim-surround").setup()
-      end,
-    })
+    -- *** APPEARANCE *** 
 
-    use("lewis6991/impatient.nvim")
-    use("numToStr/Comment.nvim")
+    -- Colourscheme
+    use { "olivercederborg/poimandres.nvim" }
 
-    use("folke/zen-mode.nvim")
-
+    -- It's LuaLine!
     use "nvim-lualine/lualine.nvim"
 
+    -- Provides those horizontal indent margin lines
     use "lukas-reineke/indent-blankline.nvim"
 
+    -- Show the color that a color string is.
     use({
       "norcalli/nvim-colorizer.lua",
       config = function()
@@ -84,11 +87,13 @@ return require('packer').startup(function(use)
       end,
     })
 
+    -- DevIcons
     use("kyazdani42/nvim-web-devicons")
 
     -- Dress up the normal ui
 	  use({ "stevearc/dressing.nvim" })
 
+    -- Show LSP activities
     use({
       "j-hui/fidget.nvim",
       config = function()
@@ -96,10 +101,10 @@ return require('packer').startup(function(use)
       end,
     })
 
-    -- Git
+    -- Gitsigns
     use("lewis6991/gitsigns.nvim")
 
-    -- Issues and errors
+    -- A pretty list for showing diagnostics, references, telescope results etc
     use({
       "folke/trouble.nvim",
       requires = "kyazdani42/nvim-web-devicons",
@@ -107,5 +112,11 @@ return require('packer').startup(function(use)
         require("trouble").setup({})
       end,
     })
+
+    -- ZenMode
+    use("folke/zen-mode.nvim")
+
+    -- WhichKey
+    use("folke/which-key.nvim")
 end)
 
