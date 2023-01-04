@@ -59,3 +59,6 @@ vim.keymap.set("n", "<C-Right>", ":vertical resize +2<CR>", default_opts)
 
 -- Clear search highlight
 vim.keymap.set("n", "<leader>h", ":nohl <CR>", default_opts)
+
+-- POWER SAVE 🧙 
+vim.keymap.set("n", "<leader>w", ":w <CR>", merge(default_opts, { desc = "Save the file goddamit."}))
