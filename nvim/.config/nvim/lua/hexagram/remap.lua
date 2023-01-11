@@ -65,3 +65,6 @@ vim.keymap.set("n", "<leader>w", ":w <CR>", merge(default_opts, { desc = "Save t
 
 -- Make :W do the same as :w
 vim.cmd [[command! W :w]]
+
+-- Make :Q do the same as :q
+vim.cmd [[command! Q :q]]
