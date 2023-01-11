@@ -62,3 +62,6 @@ vim.keymap.set("n", "<leader>h", ":nohl <CR>", default_opts)
 
 -- POWER SAVE 🧙 
 vim.keymap.set("n", "<leader>w", ":w <CR>", merge(default_opts, { desc = "Save the file goddamit."}))
+
+-- Make :W do the same as :w
+vim.cmd [[command! W :w]]
