@@ -5,9 +5,10 @@ lsp.preset("recommended")
 lsp.ensure_installed({
   'tsserver',
   'eslint',
-  'sumneko_lua',
+  'lua_ls',
   'rust_analyzer',
   'solargraph',
+  'emmet_ls'
 })
 
 -- Fix Undefined global 'vim'
