@@ -30,6 +30,8 @@ return require('packer').startup(function(use)
     use("numToStr/Comment.nvim") -- Easily comment stuff
     use("lewis6991/impatient.nvim") -- Speed up loading Lua modules in Neovim to improve startup time.
 
+    use('sadotsoy/vim-xit')
+
     use({
       "kylechui/nvim-surround",
       config = function()

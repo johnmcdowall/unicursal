@@ -7,6 +7,9 @@ end
 -- Just fucking use Netrw
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex, { desc = "Open Netrw" })
 
+-- Close all open buffers
+vim.keymap.set("n", "<leader>bd", "<cmd>:bufdo bd<CR>", { silent = true})
+
 -- Double tapping space toggles back to last buffer
 vim.keymap.set("n", "<Leader><Leader>", "<C-^>", merge(default_opts, { desc = "Toggle between last opened file"}))
 
