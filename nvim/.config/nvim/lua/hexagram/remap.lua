@@ -71,3 +71,6 @@ vim.cmd [[command! W :w]]
 
 -- Make :Q do the same as :q
 vim.cmd [[command! Q :q]]
+
+-- Open TODO.xit
+vim.keymap.set("n", "<leader>td", ":e TODO.xit<CR>", { desc = "Open Netrw" })
