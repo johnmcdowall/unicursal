@@ -64,6 +64,7 @@ vim.opt.fileencoding = 'utf-8'
 
 -- Clipboard
 vim.opt.clipboard = "unnamedplus"               -- allows neovim to access the system clipboard
+vim.opt.paste = true
 
 -- NETRW settings
 vim.g.netrw_browse_split = 0

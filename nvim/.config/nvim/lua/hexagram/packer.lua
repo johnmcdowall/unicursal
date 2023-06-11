@@ -32,6 +32,8 @@ return require('packer').startup(function(use)
 
     use('sadotsoy/vim-xit')
 
+    use('christoomey/vim-tmux-navigator')
+
     use({
       "kylechui/nvim-surround",
       config = function()
