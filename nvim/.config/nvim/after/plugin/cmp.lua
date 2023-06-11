@@ -9,7 +9,6 @@ cmp.setup {
   },
 
   sources = {
-		{ name = "path" },
     {
       name = 'luasnip' ,
       keyword_length = 3,
@@ -20,7 +19,11 @@ cmp.setup {
       keyword_length = 3,
       max_item_count = 20
     },
-    { name = "buffer" },
+		{ name = "path" },
+    { 
+      name = "buffer" ,
+      keyword_length = 3
+    },
   },
 
   preselect = cmp.PreselectMode.None,
