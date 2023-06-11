@@ -74,3 +74,6 @@ vim.cmd [[command! Q :q]]
 
 -- Open TODO.xit
 vim.keymap.set("n", "<leader>td", ":e TODO.xit<CR>", { desc = "Open Netrw" })
+
+-- OIL
+vim.keymap.set("n", "-", require("oil").open, { desc = "Open parent directory" })

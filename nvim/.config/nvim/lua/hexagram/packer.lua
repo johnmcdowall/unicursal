@@ -65,6 +65,14 @@ return require('packer').startup(function(use)
             {"goolord/alpha-nvim"}
         }
     }
+    
+    -- Show LSP activities
+    use({
+      "j-hui/fidget.nvim",
+      config = function()
+        require("fidget").setup()
+      end,
+    })
 
     -- The current best Golang setup
     use 'ray-x/go.nvim'
@@ -97,14 +105,6 @@ return require('packer').startup(function(use)
     -- Dress up the normal ui
 	  use({ "stevearc/dressing.nvim" })
 
-    -- Show LSP activities
-    use({
-      "j-hui/fidget.nvim",
-      config = function()
-        require("fidget").setup()
-      end,
-    })
-
     -- Gitsigns
     use("lewis6991/gitsigns.nvim")
 
@@ -122,5 +122,11 @@ return require('packer').startup(function(use)
 
     -- WhichKey
     use("folke/which-key.nvim")
+
+    -- OIL
+    use {
+      'stevearc/oil.nvim',
+      config = function() require('oil').setup() end
+    }
 end)
 
