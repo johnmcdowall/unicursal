@@ -14,12 +14,13 @@ lsp.ensure_installed({
 
 lsp.set_preferences({
     suggest_lsp_servers = false,
-    sign_icons = {
-        error = 'E',
-        warn = 'W',
-        hint = 'H',
-        info = 'I'
-    }
+})
+
+lsp.set_sign_icons({
+  error = '❌',
+  warn = '⚠️',
+  hint = '💡',
+  info = 'ℹ️'
 })
 
 require("luasnip.loaders.from_snipmate").lazy_load()

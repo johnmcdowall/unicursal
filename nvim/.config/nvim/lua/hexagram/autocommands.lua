@@ -7,3 +7,9 @@ autocmd('TextYankPost', {
   command = 'silent! lua vim.highlight.on_yank()',
 })
 
+-- remove whitespace on save
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*",
+  command = ":%s/\\s\\+$//e",
+  group = my_augroup,
+})

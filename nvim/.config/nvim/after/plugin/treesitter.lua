@@ -1,6 +1,23 @@
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all"
-  ensure_installed = { "javascript", "typescript", "c", "lua", "rust", "go", "ruby" },
+  ensure_installed = {
+    "javascript",
+    "typescript",
+    "c",
+    "lua",
+    "rust",
+    "go",
+    "ruby",
+    "css",
+    "tsx",
+    "yaml",
+    "html",
+    "markdown",
+    "markdown_inline",
+    "vue",
+    "vim",
+    "dockerfile"
+  },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
@@ -12,6 +29,9 @@ require'nvim-treesitter.configs'.setup {
   autopairs = {
 		enable = true,
 	},
+
+  -- enable indentation
+  indent = { enable = true },
 
 	rainbow = {
 		enable = false,

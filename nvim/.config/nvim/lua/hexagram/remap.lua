@@ -63,7 +63,7 @@ vim.keymap.set("n", "<C-Right>", ":vertical resize +2<CR>", default_opts)
 -- Clear search highlight
 vim.keymap.set("n", "<leader>h", ":nohl <CR>", default_opts)
 
--- POWER SAVE 🧙 
+-- POWER SAVE 🧙
 vim.keymap.set("n", "<leader>w", ":w <CR>", merge(default_opts, { desc = "Save the file goddamit."}))
 
 -- Make :W do the same as :w
@@ -77,3 +77,6 @@ vim.keymap.set("n", "<leader>td", ":e TODO.xit<CR>", { desc = "Open Netrw" })
 
 -- OIL
 vim.keymap.set("n", "-", require("oil").open, { desc = "Open parent directory" })
+
+-- Resource the nvim config
+vim.keymap.set("n", "<leader>sv", "<cmd>lua ReloadConfig()<CR>", merge( default_opts, {desc = "Re-source the NVIM config."}))
