@@ -31,7 +31,10 @@ require'nvim-treesitter.configs'.setup {
 	},
 
   -- enable indentation
-  indent = { enable = true },
+  indent = {
+    enable = true,
+    disable = {"python", "go", "ruby"},
+  },
 
 	rainbow = {
 		enable = false,

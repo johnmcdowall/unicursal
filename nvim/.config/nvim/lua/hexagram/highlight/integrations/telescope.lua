@@ -2,11 +2,11 @@ local colors = require("poimandres.palette")
 
 return {
 	TelescopeBorder = {
-		fg = colors.background1,
+		fg = colors.teal1,
 	},
 
 	TelescopePromptBorder = {
-		fg = colors.background1,
+		fg = colors.teal1,
 	},
 
 	TelescopePromptNormal = {

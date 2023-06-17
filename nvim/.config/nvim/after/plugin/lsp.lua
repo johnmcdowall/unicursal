@@ -13,7 +13,7 @@ lsp.ensure_installed({
 })
 
 lsp.set_preferences({
-    suggest_lsp_servers = false,
+  suggest_lsp_servers = false,
 })
 
 lsp.set_sign_icons({
@@ -29,8 +29,8 @@ lsp.on_attach(function(client, bufnr)
   local opts = {buffer = bufnr, remap = false}
 
   if client.name == "eslint" then
-      vim.cmd.LspStop('eslint')
-      return
+    vim.cmd.LspStop('eslint')
+    return
   end
 
   vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
@@ -48,6 +48,13 @@ end)
 lsp.setup()
 
 vim.diagnostic.config({
-    virtual_text = true,
+  virtual_text = false,
+  underline = true,
+  float = {
+    focusable = false,
+    style = 'minimal',
+    border = 'rounded',
+    source = 'always'
+  }
 })
 
