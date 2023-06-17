@@ -45,8 +45,6 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
 end)
 
-lsp.setup()
-
 vim.diagnostic.config({
   virtual_text = false,
   underline = true,
@@ -57,4 +55,24 @@ vim.diagnostic.config({
     source = 'always'
   }
 })
+
+require('lspconfig').lua_ls.setup({
+  settings = { -- custom settings for lua
+    Lua = {
+      -- make the language server recognize "vim" global
+      diagnostics = {
+        globals = { "vim" },
+      },
+      workspace = {
+        -- make language server aware of runtime files
+        library = {
+          [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+          [vim.fn.stdpath("config") .. "/lua"] = true,
+        },
+      },
+    },
+  },
+})
+
+lsp.setup()
 

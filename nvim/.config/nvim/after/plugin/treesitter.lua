@@ -30,20 +30,17 @@ require'nvim-treesitter.configs'.setup {
 		enable = true,
 	},
 
+  autotag = {
+    enable = true,
+    enable_rename = true,
+    enable_close = true,
+  },
+
   -- enable indentation
   indent = {
     enable = true,
     disable = {"python", "go", "ruby"},
   },
-
-	rainbow = {
-		enable = false,
-		-- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
-		extended_mode = false, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
-		max_file_lines = nil, -- Do not enable for files with more than n lines, int
-		-- colors = {}, -- table of hex strings
-		-- termcolors = {} -- table of colour name strings
-	},
 
   highlight = {
     -- `false` will disable the whole extension
