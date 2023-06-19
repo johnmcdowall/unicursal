@@ -143,8 +143,5 @@ return require('packer').startup(function(use)
   use("folke/which-key.nvim")
 
   -- OIL
-  use {
-    'stevearc/oil.nvim',
-    config = function() require('oil').setup() end
-  }
+  use { 'stevearc/oil.nvim' }
 end)
