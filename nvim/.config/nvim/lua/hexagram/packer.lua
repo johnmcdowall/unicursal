@@ -35,9 +35,12 @@ return require('packer').startup(function(use)
       ts_update()
     end,
   })
-  use("windwp/nvim-autopairs") -- Autopairs, integrates with both cmp and treesitter
+
+  -- Autopairs, integrates with both cmp and treesitter
+  use("windwp/nvim-autopairs")
+
+  --autoclose tags
   use({
-                               --autoclose tags
     'windwp/nvim-ts-autotag',
     config = function()
       require('nvim-ts-autotag').setup({
@@ -61,6 +64,8 @@ return require('packer').startup(function(use)
   })
 
   -- *** LSP ***
+  use 'tpope/vim-rails'
+
   use {
     'VonHeikemen/lsp-zero.nvim',
     requires = {
@@ -84,6 +89,8 @@ return require('packer').startup(function(use)
       { "goolord/alpha-nvim" }
     }
   }
+
+  use 'jose-elias-alvarez/null-ls.nvim'
 
   -- Show LSP activities
   use({
