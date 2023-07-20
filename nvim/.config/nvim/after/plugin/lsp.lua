@@ -18,10 +18,10 @@ lsp.set_preferences({
 })
 
 lsp.set_sign_icons({
-  error = '❌',
-  warn = '⚠️',
-  hint = '💡',
-  info = 'ℹ️'
+  error = '⨯',
+  warn = '⚠',
+  hint = '⍟',
+  info = '⏺'
 })
 
 require("luasnip.loaders.from_snipmate").lazy_load()

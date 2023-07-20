@@ -34,12 +34,13 @@ require'nvim-treesitter.configs'.setup {
     enable = true,
     enable_rename = true,
     enable_close = true,
+    filetypes = { "html" , "xml", "eruby" },
   },
 
   -- enable indentation
   indent = {
     enable = true,
-    disable = {"python", "go", "ruby"},
+    --disable = {"python", "go", "ruby"},
   },
 
   highlight = {
