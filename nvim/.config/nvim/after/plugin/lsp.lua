@@ -8,7 +8,6 @@ lsp.ensure_installed({
   'lua_ls',
   'rust_analyzer',
   'solargraph',
-  'rufo',
   'emmet_ls',
   'tailwindcss'
 })

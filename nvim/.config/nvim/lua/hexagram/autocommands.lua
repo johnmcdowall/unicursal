@@ -13,3 +13,11 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   command = ":%s/\\s\\+$//e",
   group = my_augroup,
 })
+
+-- Format on save
+autocmd('BufWritePost', {
+  pattern = "*",
+  command = 'silent! FormatWrite',
+  group = my_augroup,
+})
+
