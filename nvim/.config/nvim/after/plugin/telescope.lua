@@ -3,6 +3,15 @@ local telescope = require('telescope')
 require("hexagram.highlight").load_highlight("telescope")
 
 telescope.setup {
+  defaults = {
+    -- Default configuration for telescope goes here:
+    -- config_key = value,
+    mappings = {
+      i = {
+        ['<c-d>'] = require('telescope.actions').delete_buffer
+      }
+    }
+  },
   pickers = {
     find_files = {
       hidden = true,
