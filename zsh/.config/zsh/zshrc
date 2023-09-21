@@ -76,4 +76,4 @@ fancy-ctrl-z () {
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
 
-source "/Users/jmd/Google Drive/My Drive/_3. Resources/local_zsh_funcs.zsh"
+[ -d /Users/jmd/ ] && source "/Users/jmd/Google Drive/My Drive/_3. Resources/local_zsh_funcs.zsh"

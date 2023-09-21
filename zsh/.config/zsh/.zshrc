@@ -1,9 +1,7 @@
 source $ZDOTDIR/zshrc
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-
-source /opt/homebrew/opt/asdf/libexec/asdf.sh
+[ -d /opt/homebrew ] && source /opt/homebrew/opt/asdf/libexec/asdf.sh
 
 # pnpm
 export PNPM_HOME="/Users/jmd/Library/pnpm"
