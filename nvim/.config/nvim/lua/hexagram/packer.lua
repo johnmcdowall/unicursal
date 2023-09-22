@@ -152,4 +152,7 @@ return require('packer').startup(function(use)
 
   -- OIL
   use { 'stevearc/oil.nvim' }
+
+  -- Markdown Preview
+  use { 'iamcco/markdown-preview.nvim', run = function() vim.fn["mkdp#util#install"]() end, }
 end)
