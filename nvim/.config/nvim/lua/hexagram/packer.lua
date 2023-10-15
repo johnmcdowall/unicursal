@@ -155,4 +155,7 @@ return require('packer').startup(function(use)
 
   -- Markdown Preview
   use { 'iamcco/markdown-preview.nvim', run = function() vim.fn["mkdp#util#install"]() end, }
+
+  -- Devcontainers?
+  use { 'https://codeberg.org/esensar/nvim-dev-container' }
 end)

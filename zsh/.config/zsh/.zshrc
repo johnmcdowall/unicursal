@@ -7,3 +7,6 @@ source $ZDOTDIR/zshrc
 export PNPM_HOME="/Users/jmd/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
+
+# bun completions
+[ -s "/Users/jmd/.bun/_bun" ] && source "/Users/jmd/.bun/_bun"
