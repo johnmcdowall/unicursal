@@ -1,3 +1,3 @@
 #! /usr/bin/bash
-rm /home/devuser/.gemrc
+rm ~/.gemrc
 stow profile zsh tmux
