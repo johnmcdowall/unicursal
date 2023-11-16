@@ -1,4 +1,6 @@
 source $ZDOTDIR/zshrc
+export XDG_CONFIG_HOME="$HOME/.config"
+
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -d /opt/homebrew ] && source /opt/homebrew/opt/asdf/libexec/asdf.sh
