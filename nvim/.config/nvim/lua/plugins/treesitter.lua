@@ -1,4 +1,8 @@
 return {
+  -- for typescript, LazyVim also includes extra specs to properly setup lspconfig,
+  -- treesitter, mason and typescript.nvim. So instead of the above, you can use:
+  { import = "lazyvim.plugins.extras.lang.typescript" },
+
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
@@ -10,6 +14,7 @@ return {
         "gitignore",
         "go",
         "graphql",
+        "html",
         "http",
         "java",
         "ruby",
@@ -17,7 +22,7 @@ return {
         "scss",
         "sql",
         "svelte",
-        "xit",
+        "vue",
       },
     },
     config = function(_, opts)
@@ -27,11 +32,9 @@ return {
       vim.filetype.add({
         extension = {
           mdx = "mdx",
-          xit = "xit",
         },
       })
       vim.treesitter.language.register("markdown", "mdx")
-      vim.treesitter.language.register("xit", "xit")
     end,
   },
 }

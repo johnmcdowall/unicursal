@@ -24,6 +24,31 @@ vim.opt.guicursor = {
 -- don't hide stuff from me
 vim.opt.conceallevel = 0
 
+-- Line Numbering
+vim.opt.nu = true
+vim.opt.relativenumber = true
+
+-- Tabs
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.expandtab = true
+
+-- Splits
+vim.opt.equalalways = true
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+
+-- Indents and Wrapping
+vim.opt.smartindent = false
+vim.opt.autoindent = false
+vim.opt.wrap = true
+
+vim.opt.colorcolumn = "80,120"
+
+-- Incclude dashes as part of word
+vim.opt.iskeyword:append("-")
+
 -- filetypes
 vim.filetype.add({
   -- extension = {
