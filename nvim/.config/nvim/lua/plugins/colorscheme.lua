@@ -5,21 +5,22 @@ return {
     priority = 1000,
     config = function()
       require("poimandres").setup({
-        -- leave this setup function empty for default config
-        -- or refer to the configuration section
-        -- for configuration options
+        bold_vert_split = true, -- use bold vertical separators
+        dim_nc_background = true, -- dim 'non-current' window backgrounds
+        disable_background = false, -- disable background
+        disable_float_background = false, -- disable background for floats
+        disable_italics = false, -- disable italics
       })
-    end,
-
-    -- optionally set the colorscheme within lazy config
-    init = function()
-      vim.cmd("colorscheme poimandres")
     end,
   },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "poimandres",
+      colorscheme = function()
+        vim.cmd("colorscheme poimandres")
+        local colors = require("poimandres.palette")
+        vim.api.nvim_set_hl(0, "FloatBorder", { fg = colors.teal1 })
+      end,
     },
   },
 }

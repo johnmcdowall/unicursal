@@ -68,3 +68,13 @@ vim.filetype.add({
     ["%.gitconfig%.[%w_.-]+"] = "gitconfig",
   },
 })
+
+vim.opt.fillchars = {
+  horiz = "━",
+  horizup = "┻",
+  horizdown = "┳",
+  vert = "┃",
+  vertleft = "┫",
+  vertright = "┣",
+  verthoriz = "╋",
+}
