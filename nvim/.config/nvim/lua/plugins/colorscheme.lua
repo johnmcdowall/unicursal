@@ -20,6 +20,7 @@ return {
         vim.cmd("colorscheme poimandres")
         local colors = require("poimandres.palette")
         vim.api.nvim_set_hl(0, "FloatBorder", { fg = colors.teal1 })
+        vim.api.nvim_set_hl(0, "ColorColumn", { bg = "#282a34" })
       end,
     },
   },
