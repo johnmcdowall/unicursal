@@ -75,7 +75,79 @@ return {
         },
         severity_sort = true,
       },
+      setup = {
+        tailwindcss = function(_, opts)
+          local tw = require("lspconfig.server_configurations.tailwindcss")
+          opts.filetypes = opts.filetypes or {}
+
+          -- Add default filetypes
+          vim.list_extend(opts.filetypes, tw.default_config.filetypes)
+
+          -- Remove excluded filetypes
+          --- @param ft string
+          opts.filetypes = vim.tbl_filter(function(ft)
+            return not vim.tbl_contains(opts.filetypes_exclude or {}, ft)
+          end, opts.filetypes)
+
+          -- Add additional filetypes
+          vim.list_extend(opts.filetypes, opts.filetypes_include or {})
+        end,
+      },
       servers = {
+        tailwindcss = {
+          filetypes = {
+            "css",
+            "scss",
+            "sass",
+            "html",
+            "eruby",
+            "ruby",
+            "javascript",
+            "javascriptreact",
+            "typescript",
+            "typescriptreact",
+            "rust",
+            "svelte",
+          },
+          init_options = {
+            userLanguages = {
+              eruby = "erb",
+              svelte = "html",
+              rust = "html",
+              ruby = "html",
+            },
+          },
+          settings = {
+            includeLanguages = {
+              typescript = "javascript",
+              typescriptreact = "javascript",
+              ruby = "html",
+              erb = "html",
+              svelte = "html",
+              rust = "html",
+            },
+            tailwindCSS = {
+              lint = {
+                cssConflict = "warning",
+                invalidApply = "error",
+                invalidConfigPath = "error",
+                invalidScreen = "error",
+                invalidTailwindDirective = "error",
+                invalidVariant = "error",
+                recommendedVariantOrder = "warning",
+              },
+              experimental = {
+                classRegex = {
+                  [[class= "([^"]*)]],
+                  [[class: "([^"]*)]],
+                  '~H""".*class="([^"]*)".*"""',
+                  '~F""".*class="([^"]*)".*"""',
+                },
+              },
+              validate = true,
+            },
+          },
+        },
         ruby_ls = {
           cmd = { "bundle", "exec", "ruby-lsp" },
           init_options = {
