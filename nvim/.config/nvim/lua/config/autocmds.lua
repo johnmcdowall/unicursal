@@ -3,3 +3,8 @@
 -- Add any additional autocmds here
 --
 vim.cmd([[autocmd FileType ruby setlocal indentkeys-=.]])
+
+vim.api.nvim_create_autocmd("BufReadPost", {
+  pattern = { "*.erb", "*.eruby" },
+  command = "set syntax=html",
+})
