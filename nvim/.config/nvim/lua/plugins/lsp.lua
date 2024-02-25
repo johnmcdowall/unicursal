@@ -138,7 +138,7 @@ return {
               },
               experimental = {
                 classRegex = {
-                  [[class= "([^"]*)]],
+                  [[class="([^"]*)]],
                   [[class: "([^"]*)]],
                   '~H""".*class="([^"]*)".*"""',
                   '~F""".*class="([^"]*)".*"""',
