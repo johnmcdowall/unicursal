@@ -188,7 +188,7 @@ return {
           on_attach = function(client, buffer)
             setup_diagnostics(client, buffer)
             add_ruby_deps_command(client, buffer)
-            client.server_capabilities.documentFormattingProvider = true
+            -- client.server_capabilities.documentFormattingProvider = true
             client.server_capabilities.semanticTokensProvider = false
           end,
         },
