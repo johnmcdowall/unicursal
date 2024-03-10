@@ -1,6 +1,3 @@
-if true then
-  return {}
-end
 return {
   "mhartington/formatter.nvim",
   event = "BufWrite",
@@ -19,23 +16,34 @@ return {
       logging = true,
       log_level = vim.log.levels.WARN,
       filetype = {
-        ruby = {
+        eruby = {
           function()
             return {
-              exe = "bundle exec rubocop",
+              exe = "htmlbeautifier",
               args = {
-                "--fix-layout",
-                "--autocorrect-all",
-                "--stdin",
-                util.escape_path(util.get_current_buffer_file_name()),
-                "--format",
-                "files",
-                "--stderr",
+                "-b 1",
               },
               stdin = true,
             }
           end,
         },
+        -- ruby = {
+        --   function()
+        --     return {
+        --       exe = "bundle exec rubocop",
+        --       args = {
+        --         "--fix-layout",
+        --         "--autocorrect-all",
+        --         "--stdin",
+        --         util.escape_path(util.get_current_buffer_file_name()),
+        --         "--format",
+        --         "files",
+        --         "--stderr",
+        --       },
+        --       stdin = true,
+        --     }
+        --   end,
+        -- },
         lua = {
           require("formatter.filetypes.lua").stylua,
         },
