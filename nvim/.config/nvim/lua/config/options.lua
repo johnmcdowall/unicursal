@@ -78,3 +78,5 @@ vim.opt.fillchars = {
   vertright = "┣",
   verthoriz = "╋",
 }
+
+vim.g.lazygit_config = false
