@@ -8,3 +8,5 @@ local Util = require("lazyvim.util")
 -- DO NOT USE THIS IN YOU OWN CONFIG!!
 -- use `vim.keymap.set` instead
 local map = Util.safe_keymap_set
+
+map("i", "<C-c>", "<ESC>`^", { silent = true })

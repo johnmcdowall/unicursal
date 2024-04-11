@@ -29,7 +29,7 @@ local function setup_diagnostics(client, buffer)
   vim.api.nvim_buf_attach(buffer, false, {
     on_lines = function()
       if _timers[buffer] then
-        vim.fn.timer_stop(_timers[buffer])
+        pcall(vim.fn.timer_stop(_timers[buffer]))
       end
       _timers[buffer] = vim.fn.timer_start(200, diagnostic_handler)
     end,
