@@ -52,3 +52,5 @@ require("lazy").setup({
 
 LazyVim.lazygit.theme.selectedLineBgColor = { bg = "Visual" }
 LazyVim.lazygit.theme.activeBorderColor = { LazyVim.ui.color("MatchParen") or "orange" }
+
+require("sg").setup()

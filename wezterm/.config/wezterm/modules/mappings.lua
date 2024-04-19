@@ -6,6 +6,13 @@ return {
 
 	keys = {
 		{
+			key = "k",
+			mods = "CMD",
+			action = act.Multiple({
+				act.ClearScrollback("ScrollbackAndViewport"),
+			}),
+		},
+		{
 			key = "w",
 			mods = "CMD",
 			action = act.CloseCurrentPane({ confirm = true }),
