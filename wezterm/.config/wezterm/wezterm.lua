@@ -44,4 +44,5 @@ return {
 	leader = mappings.leader,
 	keys = mappings.keys,
 	key_tables = mappings.key_tables,
+	scrollback_lines = 9000,
 }

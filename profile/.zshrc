@@ -21,3 +21,5 @@ export PATH="/opt/homebrew/opt/curl/bin:$PATH"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+source ~/.zshrc.local 

@@ -12,3 +12,4 @@ export PATH="$PNPM_HOME:$PATH"
 
 # bun completions
 [ -s "/Users/jmd/.bun/_bun" ] && source "/Users/jmd/.bun/_bun"
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
