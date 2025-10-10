@@ -23,3 +23,8 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 source ~/.zshrc.local 
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/jmd/.lmstudio/bin"
+# End of LM Studio CLI section
+
