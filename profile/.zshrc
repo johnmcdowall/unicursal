@@ -8,7 +8,6 @@ export BROWSER="brave"
 export ZDOTDIR=$HOME/.config/zsh
 source $ZDOTDIR/.zshrc
 
-export HISTFILE=$HOME/.zhistory
 
 
 # The next line updates PATH for the Google Cloud SDK.

@@ -47,3 +47,6 @@ case "$(uname -s)" in
      # echo 'Other OS' 
      ;;
 esac
+
+alias cdx="codex --sandbox danger-full-access --full-auto"
+alias cds="claude --dangerously-skip-permissions"

@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Stop ! messing up passwords in env vars
+setopt nobanghist
+
 # some useful options (man zshoptions)
 setopt autocd extendedglob nomatch menucomplete
 setopt interactive_comments

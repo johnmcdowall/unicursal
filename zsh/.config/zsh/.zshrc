@@ -17,4 +17,3 @@ esac
 [ -s "/Users/jmd/.bun/_bun" ] && source "/Users/jmd/.bun/_bun"
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
-alias claude="/Users/jmd/.claude/local/claude"
